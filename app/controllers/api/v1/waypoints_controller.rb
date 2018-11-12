@@ -4,8 +4,8 @@ module Api
     class WaypointsController < ApplicationController
 
       def create_waypoint
-        result = CreateWaypoint.call(waypoint_params)
-        render json: result.waypoint
+        WaypointWorker.perform_async(waypoint_params.to_h)
+        render :json => waypoint_params
       end
 
     private

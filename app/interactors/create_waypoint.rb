@@ -7,7 +7,6 @@ class CreateWaypoint
     longitude = context.longitude.to_f
     sent_at = Time.zone.parse( context.sent_at )
     waypoint = Waypoint.create! latitude: latitude, longitude: longitude, vehicle: vehicle, sent_at: sent_at
-    context.waypoint = waypoint
   end
 
 end
