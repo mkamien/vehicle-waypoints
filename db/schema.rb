@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_035626) do
+ActiveRecord::Schema.define(version: 2018_11_11_232428) do
 
   create_table "vehicles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "identifier"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_035626) do
     t.bigint "vehicle_id"
     t.float "latitude"
     t.float "longitude"
-    t.time "sent_at"
+    t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["vehicle_id"], name: "index_waypoints_on_vehicle_id"
