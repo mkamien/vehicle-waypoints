@@ -2,7 +2,7 @@ class CreateWaypoint
   include Interactor
 
   def call
-    vehicle = Vehicle.find_by_identifier( context.vehicle_identifier )
+    vehicle = Vehicle.find_or_create_by(identifier: context.vehicle_identifier)
     latitude = context.latitude.to_f
     longitude = context.longitude.to_f
     sent_at = Time.zone.parse( context.sent_at )
