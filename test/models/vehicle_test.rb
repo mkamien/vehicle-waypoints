@@ -26,4 +26,11 @@ class VehicleTest < ActiveSupport::TestCase
     assert secondVehicle.save
   end
 
+  test "get_last_waypoint method should return last waypoint" do
+    vehicle = Vehicle.new identifier:"AB-2131"
+    firstWaypoint = Waypoint.create! vehicle:vehicle, sent_at:Time.zone.parse( "2017-12-25 20:45:00" ), latitude:-45.00, longitude:30.00
+    secondWaypoint = Waypoint.create! vehicle:vehicle, sent_at:Time.zone.parse( "2015-12-25 20:45:00" ), latitude:-45.00, longitude:32.00
+    assert vehicle.get_last_waypoint == firstWaypoint
+  end
+
 end
