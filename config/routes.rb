@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/show", to: "vehicles#index"
-  
+  get "/show", to: "vehicles#show"
+
 end
