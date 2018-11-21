@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Se eligió utilizar la gema 'sideqik' para crear los waypoints de manera asincrónica.
 
-Things you may want to cover:
+Esta gema usa redis como base de datos.
 
-* Ruby version
+Para que los jobs sean procesados hay que iniciar redis con el comando:
+* redis-server
 
-* System dependencies
+y luego iniciar sideqik con el comando:
+* bundle exec sidekiq
 
-* Configuration
+Luego de esto se puede levantar el servidor con 'rails server' y empezar a  crear los waypoints.
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
