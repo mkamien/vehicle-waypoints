@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vehicle's Most Recent Coordinate</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 600px;
+        weight: 140px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="map"></div>
+
+    <script>
+      var waypoints = <%= @waypoints.to_json.html_safe %>;
+    </script>
+
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAedGiyGcP2ui4I048VF9S_uBr5xhsiOKM&callback=initMap" async defer></script>
+  <%= javascript_include_tag "application" %>
+  </body>
+</html>

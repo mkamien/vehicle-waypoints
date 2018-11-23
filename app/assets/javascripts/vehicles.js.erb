@@ -1,0 +1,34 @@
+function initMap() {
+
+  var centerPosition = {lat: -34.6702197, lng: -58.3735294};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: centerPosition,
+    zoom: 10
+  });
+
+  var markersPositions = generateMarkers();
+  var markers = addMarkersToMap(map, markersPositions);
+  var markerCluster = new MarkerClusterer(map, markers,
+      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+}
+
+function generateMarkers(){
+  var markerPositions = [];
+
+  waypoints.forEach(function(waypoint) {
+    var markerPosition = {lat: waypoint.latitude, lng: waypoint.longitude};
+    markerPositions.push(markerPosition);
+  });
+
+  return markerPositions;
+}
+
+function addMarkersToMap(map, markerPositions){
+  var markers = markerPositions.map(function(location, i) {
+    return new google.maps.Marker({
+      position: location
+    });
+  });
+  return markers;
+}
